@@ -9,25 +9,27 @@
   <!-- form -->
   <form #writeForm="ngForm">
     <ion-list margin-top>
-
-      <!-- subject -->
-      <ion-item margin-bottom>
-        <ion-input type="text" placeholder="Add a subject (optional)"></ion-input>
-      </ion-item>
-      <!-- /subject -->
-
       <!-- content -->
       <ion-item>
         <ion-textarea rows="5" type="text" placeholder="AI generated gratitude statement"></ion-textarea>
       </ion-item>
       <!-- /content-->
-      <ion-button color="primary" [routerLink]="['/feed']">
-        Post
-      </ion-button>
+      <div class = "wrapper">
+        <ion-button color="primary" [routerLink]="['/feed']">
+          Post
+        </ion-button>
+      </div>
+
       <!-- /post -->
 
     </ion-list>
   </form>
   <!-- /form -->
 
+  <div class="wrapper">
+    <p>plant icon here</p>
+  </div>
+
 </ion-content>
+
+
