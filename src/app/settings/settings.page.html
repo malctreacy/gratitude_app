@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <p>Gratitude is a <strong>powerful</strong> tool to increase your overall well-being.</p>
+    <p>Make it a habit by setting a reminder!</p>
+
+  </div>
+
+  <ion-card>
+    <ion-card-content no-padding>
+      <div class = "wrapper">
+        <ion-item>
+          <ion-label>9:00 PM</ion-label>
+          <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+        </ion-item>
+        <ion-toggle checked></ion-toggle>
+      </div>
+      <div class = "wrapper">
+        <div class="weekDays-selector">
+          <input type="checkbox" id="weekday-sun" class="weekday" />
+          <label for="weekday-sun">S</label>
+          <input type="checkbox" id="weekday-mon" class="weekday" />
+          <label for="weekday-mon">M</label>
+          <input type="checkbox" id="weekday-tue" class="weekday" />
+          <label for="weekday-tue">T</label>
+          <input type="checkbox" id="weekday-wed" class="weekday" />
+          <label for="weekday-wed">W</label>
+          <input type="checkbox" id="weekday-thu" class="weekday" />
+          <label for="weekday-thu">T</label>
+          <input type="checkbox" id="weekday-fri" class="weekday" />
+          <label for="weekday-fri">F</label>
+          <input type="checkbox" id="weekday-sat" class="weekday" />
+          <label for="weekday-sat">S</label>
+
+        </div>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+  <div class = 'wrapper'>
+    <ion-button id ='save_setting'  color="primary" [routerLink]="['/write']">Save</ion-button>
+  </div>
+</ion-content>
