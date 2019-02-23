@@ -1,0 +1,6 @@
+{
+  "appId": "com.javebratt.eventManager",
+  "appName": "event-manager",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

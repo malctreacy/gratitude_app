@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gratitude Timeline</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let event of eventList" routerLink="/event-detail/{{ event.name }}">
+    <ion-card-header>
+        <ion-card-subtitle>{{ event.name }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{event.content}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

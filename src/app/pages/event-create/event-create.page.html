@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Gratitude Entry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="stacked">Gratitude Statement</ion-label>
+    <ion-input [(ngModel)]="eventName" type="text">
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="createEvent('hello world', eventName)">
+    Post
+  </ion-button>
+</ion-content>
