@@ -9,12 +9,15 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-label position="stacked">Gratitude Statement</ion-label>
+    <ion-label position="stacked">{{gratitudeStatement}}</ion-label>
     <ion-input [(ngModel)]="eventName" type="text">
     </ion-input>
   </ion-item>
 
-  <ion-button expand="block" (click)="createEvent('hello world', eventName)">
+  <ion-button expand="block" (click)="createEvent(eventName)">
     Post
+  </ion-button>
+  <ion-button expand="block" (click)="getGratitude()">
+    Get Gratitude Statement
   </ion-button>
 </ion-content>
