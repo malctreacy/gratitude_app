@@ -8,8 +8,17 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Today's gratitude prompt:</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{gratitudeStatement}}
+    </ion-card-content>
+  </ion-card>
   <ion-item>
-    <ion-label position="stacked">{{gratitudeStatement}}</ion-label>
+
     <ion-input [(ngModel)]="eventName" type="text">
     </ion-input>
   </ion-item>
@@ -18,6 +27,6 @@
     Post
   </ion-button>
   <ion-button expand="block" (click)="getGratitude()">
-    Get Gratitude Statement
+    Generate Gratitude Prompt
   </ion-button>
 </ion-content>
