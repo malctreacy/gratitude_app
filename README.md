@@ -5,7 +5,7 @@ Description: Native progresive web app designed to mimic the peer-reviewed benef
 
 Functionality: 
 - Cloud-based user Authentication + Profile Management
-- Gratitude Prompts (static) + gratitude timeline.
+- Gratitude Prompts (randomized) + gratitude timeline.
 
 Front-End: 
 - Ionic v4 + Capacitor (https://capacitor.ionicframework.com/docs/getting-started/with-ionic/)
