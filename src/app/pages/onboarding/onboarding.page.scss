@@ -1,0 +1,59 @@
+ion-slide {
+  height: 100vh;
+  flex-direction: column;
+}
+
+ion-img {
+  max-width: 50vw;
+  max-height: 50vh;
+  overflow: hidden;
+}
+
+.step-one {
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+}
+
+.step-two {
+  background: var(--ion-color-success);
+  color: var(--ion-color-success-contrast);
+}
+
+.step-three {
+  background: var(--ion-color-dark);
+  color: var(--ion-color-dark-contrast);
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+}
+.weekDays-selector input {
+  display: none!important;
+
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
+}
+#save_setting{
+  bottom: 10%;
+}
+
+ion-card{
+  background-color: white;
+}

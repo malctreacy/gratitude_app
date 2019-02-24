@@ -1,44 +1,48 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './services/user/auth.guard';
+import { TutorialGuard } from './services/tutorial.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule',
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'event-create',
-    loadChildren: './pages/event-create/event-create.module#EventCreatePageModule',
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'event-detail/:id',
-    loadChildren: './pages/event-detail/event-detail.module#EventDetailPageModule',
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'event-list',
-    loadChildren: './pages/event-list/event-list.module#EventListPageModule',
-    canActivate: [AuthGuard],
-  },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  {
-    path: 'profile',
-    loadChildren: './pages/profile/profile.module#ProfilePageModule',
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'reset-password',
-    loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule',
-  },
-  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
+    { path: '', redirectTo: 'onboarding', pathMatch: 'full', canActivate: [TutorialGuard]},
+    {
+        path: 'home',
+        loadChildren: './home/home.module#HomePageModule',
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'event-create',
+        loadChildren: './pages/event-create/event-create.module#EventCreatePageModule',
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'event-detail/:id',
+        loadChildren: './pages/event-detail/event-detail.module#EventDetailPageModule',
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'event-list',
+        loadChildren: './pages/event-list/event-list.module#EventListPageModule',
+        canActivate: [AuthGuard],
+    },
+    { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+    {
+        path: 'profile',
+        loadChildren: './pages/profile/profile.module#ProfilePageModule',
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'reset-password',
+        loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule',
+    },
+    { path: 'signup',
+        loadChildren: './pages/signup/signup.module#SignupPageModule'
+    },
+    { path: 'onboarding', loadChildren: './pages/onboarding/onboarding.module#OnboardingPageModule' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {}

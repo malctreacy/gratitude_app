@@ -1,0 +1,60 @@
+<ion-content>
+  <ion-slides pager="true">
+    <ion-slide class="step-one">
+      <!--<ion-img src="/assets/slides/step1.svg"></ion-img>-->
+      <h1>Gratitude.</h1>
+      <p>An AI Journal</p>
+    </ion-slide>
+
+    <ion-slide class="step-two">
+      <!--<ion-img src="/assets/slides/step2.svg"></ion-img>-->
+      <!--<ion-img src="/assets/slides/step3.svg"></ion-img>-->
+      <h1>Gratitude is a <strong>personal</strong> journey.</h1>
+      <p>Your responses will help guide the AI to get you to where you need to go. Nothing more.</p>
+
+
+
+    </ion-slide>
+
+
+    <ion-slide class="step-three">
+      <ion-card>
+        <ion-card-header>
+          <h1>Gratitude is a <strong>powerful</strong> tool to increase your overall well-being.</h1>
+          <p>Make it a habit by setting a reminder.</p>
+        </ion-card-header>
+        <ion-card-content no-padding>
+          <div class = "wrapper">
+            <ion-item>
+              <ion-label>Pick a time:</ion-label>
+              <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+            </ion-item>
+            <ion-toggle checked></ion-toggle>
+          </div>
+          <div class = "wrapper">
+            <div class="weekDays-selector">
+              <input type="checkbox" id="weekday-sun" class="weekday" />
+              <label for="weekday-sun">S</label>
+              <input type="checkbox" id="weekday-mon" class="weekday" />
+              <label for="weekday-mon">M</label>
+              <input type="checkbox" id="weekday-tue" class="weekday" />
+              <label for="weekday-tue">T</label>
+              <input type="checkbox" id="weekday-wed" class="weekday" />
+              <label for="weekday-wed">W</label>
+              <input type="checkbox" id="weekday-thu" class="weekday" />
+              <label for="weekday-thu">T</label>
+              <input type="checkbox" id="weekday-fri" class="weekday" />
+              <label for="weekday-fri">F</label>
+              <input type="checkbox" id="weekday-sat" class="weekday" />
+              <label for="weekday-sat">S</label>
+            </div>
+          </div>
+          <div>
+            <ion-button id ='save_setting'  color="primary">Save</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <ion-button (click)="finish()">Let's Get Grateful.</ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
