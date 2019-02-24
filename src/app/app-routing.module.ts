@@ -4,7 +4,7 @@ import { AuthGuard } from './services/user/auth.guard';
 import { TutorialGuard } from './services/tutorial.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'onboarding', pathMatch: 'full', canActivate: [TutorialGuard]},
+    { path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [TutorialGuard]},
     {
         path: 'home',
         loadChildren: './home/home.module#HomePageModule',
