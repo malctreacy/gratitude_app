@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AlertController, ToastController, Platform } from '@ionic/angular';
 import { AuthService } from '../../services/user/auth.service';
 import { ProfileService } from '../../services/user/profile.service';
@@ -44,7 +44,10 @@ export class ProfilePage implements OnInit {
           {title: 'Saturday', dayCode: 6, checked: false},
           {title: 'Sunday', dayCode: 0, checked: false}
       ];
+      this.notifyTime = moment(new Date()).format();
 
+      this.chosenHours = new Date().getHours();
+      this.chosenMinutes = new Date().getMinutes();
 
   }
 
@@ -151,13 +154,13 @@ export class ProfilePage implements OnInit {
       });
       toast.present();
   }
-
-  timeChange(time) {
-      this.chosenHours = time.hour.value;
-      this.chosenMinutes = time.minute.value;
-  }
-
+    timeChange(time) {
+        this.chosenHours = time.hour.value;
+        this.chosenMinutes = time.minute.value;
+    }
   getDays() {
+    console.log(this.notifyTime);
+    this.timeChange(this.notifyTime);
     this.presentNotifyOn();
     this.sun = (<any> document.getElementById('weekday-sun')).checked;
     this.mon = (<any> document.getElementById('weekday-mon')).checked;
@@ -182,6 +185,7 @@ export class ProfilePage implements OnInit {
         {title: 'Saturday', dayCode: 6, checked: false},
         {title: 'Sunday', dayCode: 0, checked: false}
     ];
+
     this.days[0].checked = this.mon;
     this.days[1].checked = this.tues;
     this.days[2].checked = this.weds;
