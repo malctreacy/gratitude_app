@@ -159,13 +159,13 @@ export class ProfilePage implements OnInit {
 
   getDays() {
     this.presentNotifyOn();
-    this.sun = <any> document.getElementById('weekday-sun');
-    this.mon = <any> document.getElementById('weekday-mon');
-    this.tues = <any> document.getElementById('weekday-tue');
-    this.weds = <any> document.getElementById('weekday-wed');
-    this.thurs = <any> document.getElementById('weekday-thu');
-    this.fri = <any> document.getElementById('weekday-fri');
-    this.sat = <any> document.getElementById('weekday-sat');
+    this.sun = (<any> document.getElementById('weekday-sun')).checked;
+    this.mon = (<any> document.getElementById('weekday-mon')).checked;
+    this.tues = (<any> document.getElementById('weekday-tue')).checked;
+    this.weds = (<any> document.getElementById('weekday-wed')).checked;
+    this.thurs = (<any> document.getElementById('weekday-thu')).checked;
+    this.fri = (<any> document.getElementById('weekday-fri')).checked;
+    this.sat = (<any> document.getElementById('weekday-sat')).checked;
     console.log(this.sun);
     this.addNotifications();
 
@@ -182,13 +182,13 @@ export class ProfilePage implements OnInit {
         {title: 'Saturday', dayCode: 6, checked: false},
         {title: 'Sunday', dayCode: 0, checked: false}
     ];
-    // this.days[0].checked = this.mon;
-    // this.days[1].checked = this.tues;
-    // this.days[2].checked = this.weds;
-    // this.days[3].checked = this.thurs;
-    // this.days[4].checked = this.fri;
-    // this.days[5].checked = this.sat;
-    // this.days[6].checked = this.sat;
+    this.days[0].checked = this.mon;
+    this.days[1].checked = this.tues;
+    this.days[2].checked = this.weds;
+    this.days[3].checked = this.thurs;
+    this.days[4].checked = this.fri;
+    this.days[5].checked = this.sat;
+    this.days[6].checked = this.sun;
 
     console.log(this.days);
 
