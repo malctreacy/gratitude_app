@@ -24,13 +24,16 @@
     "@capacitor/cli": "1.0.0-beta.17",
     "@capacitor/core": "1.0.0-beta.17",
     "@capacitor/ios": "^1.0.0-beta.17",
+    "@ionic-native/core": "^5.2.0",
     "@ionic-native/local-notifications": "^5.2.0",
     "@ionic/angular": "^4.0.0",
     "@ionic/storage": "^2.2.0",
     "cordova-plugin-local-notification": "0.9.0-beta.2",
     "cordova-sqlite-storage": "3.1.0",
     "core-js": "^2.5.4",
+    "de.appplant.cordova.plugin.local-notification": "0.8.5",
     "firebase": "^5.8.1",
+    "moment": "^2.24.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.29"
   },
@@ -41,7 +44,7 @@
     "@angular-devkit/schematics": "~7.2.3",
     "@angular/cli": "~7.2.3",
     "@angular/compiler": "~7.2.2",
-    "@angular/compiler-cli": "~7.2.2",
+    "@angular/compiler-cli": "^7.2.6",
     "@angular/language-service": "~7.2.2",
     "@ionic/angular-toolkit": "~1.2.0",
     "@ionic/lab": "1.0.21",
@@ -65,7 +68,8 @@
   "cordova": {
     "plugins": {
       "cordova-sqlite-storage": {},
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-local-notification": {},
+      "de.appplant.cordova.plugin.local-notification": {}
     }
   }
 }

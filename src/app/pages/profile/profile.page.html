@@ -59,36 +59,43 @@
   </ion-item>
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Notifications:</ion-card-subtitle>
+      <ion-card-subtitle>Set Notifications:</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content no-padding>
       <div class = "wrapper">
         <ion-item>
           <ion-label>Notification Time:</ion-label>
-          <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
+          <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45" [(ngModel)]="notifyTime" (ionChange)="timeChange($event)"></ion-datetime>
         </ion-item>
-        <ion-toggle checked></ion-toggle>
       </div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>On the following days:</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class = "wrapper">
+            <div class="weekDays-selector">
+              <input type="checkbox" id="weekday-sun" class="weekday" [(ngModel)]="days[0].checked"/>
+              <label for="weekday-sun">S</label>
+              <input type="checkbox" id="weekday-mon" class="weekday" [(ngModel)]="days[1].checked"/>
+              <label for="weekday-mon">M</label>
+              <input type="checkbox" id="weekday-tue" class="weekday" [(ngModel)]="days[2].checked"/>
+              <label for="weekday-tue">T</label>
+              <input type="checkbox" id="weekday-wed" class="weekday" [(ngModel)]="days[3].checked"/>
+              <label for="weekday-wed">W</label>
+              <input type="checkbox" id="weekday-thu" class="weekday" [(ngModel)]="days[4].checked"/>
+              <label for="weekday-thu">T</label>
+              <input type="checkbox" id="weekday-fri" class="weekday" [(ngModel)]="days[5].checked"/>
+              <label for="weekday-fri">F</label>
+              <input type="checkbox" id="weekday-sat" class="weekday" [(ngModel)]="days[6].checked"/>
+              <label for="weekday-sat">S</label>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
       <div class = "wrapper">
-        <div class="weekDays-selector">
-          <input type="checkbox" id="weekday-sun" class="weekday" />
-          <label for="weekday-sun">S</label>
-          <input type="checkbox" id="weekday-mon" class="weekday" />
-          <label for="weekday-mon">M</label>
-          <input type="checkbox" id="weekday-tue" class="weekday" />
-          <label for="weekday-tue">T</label>
-          <input type="checkbox" id="weekday-wed" class="weekday" />
-          <label for="weekday-wed">W</label>
-          <input type="checkbox" id="weekday-thu" class="weekday" />
-          <label for="weekday-thu">T</label>
-          <input type="checkbox" id="weekday-fri" class="weekday" />
-          <label for="weekday-fri">F</label>
-          <input type="checkbox" id="weekday-sat" class="weekday" />
-          <label for="weekday-sat">S</label>
-        </div>
-      </div>
-      <div>
-        <ion-button id ='save_setting'  color="primary">Save</ion-button>
+        <ion-button (click)="getDays()" ion-button color="primary" full>Schedule</ion-button>
+        <ion-button (click)="cancelAll()" ion-button color="danger" full>Leave me alone!</ion-button>
       </div>
     </ion-card-content>
   </ion-card>

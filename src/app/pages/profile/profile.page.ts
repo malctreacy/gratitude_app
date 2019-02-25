@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController, Platform } from '@ionic/angular';
 import { AuthService } from '../../services/user/auth.service';
 import { ProfileService } from '../../services/user/profile.service';
 import { Router } from '@angular/router';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-profile',
@@ -10,14 +12,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  notifyTime: any;
+  notifications: any[] = [];
+  days: any[];
+  mon: boolean;
+  tues: boolean;
+  weds: boolean;
+  thurs: boolean;
+  fri: boolean;
+  sat: boolean;
+  sun: boolean;
+  chosenHours: number;
+  chosenMinutes: number;
   public userProfile: any;
   public birthDate: Date;
   constructor(
     private alertCtrl: AlertController,
+    public platform: Platform,
     private authService: AuthService,
     private profileService: ProfileService,
-    private router: Router
-  ) {}
+    private router: Router,
+    public localNotifications: LocalNotifications,
+    public toastController: ToastController
+  ) {
+      this.days = [
+          {title: 'Monday', dayCode: 1, checked: false},
+          {title: 'Tuesday', dayCode: 2, checked: false},
+          {title: 'Wednesday', dayCode: 3, checked: false},
+          {title: 'Thursday', dayCode: 4, checked: false},
+          {title: 'Friday', dayCode: 5, checked: false},
+          {title: 'Saturday', dayCode: 6, checked: false},
+          {title: 'Sunday', dayCode: 0, checked: false}
+      ];
+
+
+  }
 
   ngOnInit() {
     this.profileService
@@ -108,4 +137,116 @@ export class ProfilePage implements OnInit {
     });
     await alert.present();
   }
+  async presentCancel() {
+      const toast = await this.toastController.create({
+          message: 'All notifications cancelled.',
+          duration: 2000
+      });
+      toast.present();
+  }
+  async presentNotifyOn() {
+      const toast = await this.toastController.create({
+          message: 'Your notification settings have been saved.',
+          duration: 2000
+      });
+      toast.present();
+  }
+
+  timeChange(time) {
+      this.chosenHours = time.hour.value;
+      this.chosenMinutes = time.minute.value;
+  }
+
+  getDays() {
+    this.presentNotifyOn();
+    this.sun = <any> document.getElementById('weekday-sun');
+    this.mon = <any> document.getElementById('weekday-mon');
+    this.tues = <any> document.getElementById('weekday-tue');
+    this.weds = <any> document.getElementById('weekday-wed');
+    this.thurs = <any> document.getElementById('weekday-thu');
+    this.fri = <any> document.getElementById('weekday-fri');
+    this.sat = <any> document.getElementById('weekday-sat');
+    console.log(this.sun);
+    this.addNotifications();
+
+
+  }
+
+  addNotifications() {
+    this.days = [
+        {title: 'Monday', dayCode: 1, checked: false},
+        {title: 'Tuesday', dayCode: 2, checked: false},
+        {title: 'Wednesday', dayCode: 3, checked: false},
+        {title: 'Thursday', dayCode: 4, checked: false},
+        {title: 'Friday', dayCode: 5, checked: false},
+        {title: 'Saturday', dayCode: 6, checked: false},
+        {title: 'Sunday', dayCode: 0, checked: false}
+    ];
+    // this.days[0].checked = this.mon;
+    // this.days[1].checked = this.tues;
+    // this.days[2].checked = this.weds;
+    // this.days[3].checked = this.thurs;
+    // this.days[4].checked = this.fri;
+    // this.days[5].checked = this.sat;
+    // this.days[6].checked = this.sat;
+
+    console.log(this.days);
+
+    const currentDate = new Date();
+    const currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
+
+    for (let day of this.days){
+
+        if (day.checked){
+
+            const firstNotificationTime = new Date();
+            let dayDifference = day.dayCode - currentDay;
+
+            if (dayDifference < 0) {
+                dayDifference = dayDifference + 7; // for cases where the day is in the following week
+            }
+
+            firstNotificationTime.setHours(firstNotificationTime.getHours() + (24 * (dayDifference)));
+            firstNotificationTime.setHours(this.chosenHours);
+            firstNotificationTime.setMinutes(this.chosenMinutes);
+
+            let notification = {
+                id: day.dayCode,
+                title: 'Gratitude App',
+                text: 'Time to practice a little gratitude.',
+                at: firstNotificationTime,
+                every: 'week'
+            };
+
+            this.notifications.push(notification);
+
+        }
+
+    }
+
+    console.log("Notifications to be scheduled: ", this.notifications);
+
+    if (this.platform.is('cordova')){
+
+        // Cancel any existing notifications
+        this.localNotifications.cancelAll().then(() => {
+
+            // Schedule the new notifications
+            this.localNotifications.schedule(this.notifications);
+
+            this.notifications = [];
+
+        });
+
+    }
+
+  }
+
+  cancelAll() {
+    this.localNotifications.cancelAll();
+    this.presentCancel();
+  }
+
 }
+
+
