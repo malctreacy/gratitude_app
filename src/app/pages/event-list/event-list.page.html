@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding color="light">
   <ion-card *ngFor="let event of eventList" routerLink="/event-detail/{{ event.name }}">
     <ion-card-header>
         <ion-card-subtitle>{{ event.name }}</ion-card-subtitle>
