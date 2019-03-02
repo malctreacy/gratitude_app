@@ -75,19 +75,19 @@
         <ion-card-content>
           <div class = "wrapper">
             <div class="weekDays-selector">
-              <input type="checkbox" id="weekday-sun" class="weekday" [(ngModel)]="days[0].checked"/>
+              <input type="checkbox" id="weekday-sun" class="weekday" (click) = 'onSun($event)'/>
               <label for="weekday-sun">S</label>
-              <input type="checkbox" id="weekday-mon" class="weekday" [(ngModel)]="days[1].checked"/>
+              <input type="checkbox" id="weekday-mon" class="weekday" (click) = 'onMon($event)'/>
               <label for="weekday-mon">M</label>
-              <input type="checkbox" id="weekday-tue" class="weekday" [(ngModel)]="days[2].checked"/>
+              <input type="checkbox" id="weekday-tue" class="weekday" (click) = 'onTue($event)'/>
               <label for="weekday-tue">T</label>
-              <input type="checkbox" id="weekday-wed" class="weekday" [(ngModel)]="days[3].checked"/>
+              <input type="checkbox" id="weekday-wed" class="weekday" (click) = 'onWed($event)'/>
               <label for="weekday-wed">W</label>
-              <input type="checkbox" id="weekday-thu" class="weekday" [(ngModel)]="days[4].checked"/>
+              <input type="checkbox" id="weekday-thu" class="weekday" (click) = 'onThu($event)'/>
               <label for="weekday-thu">T</label>
-              <input type="checkbox" id="weekday-fri" class="weekday" [(ngModel)]="days[5].checked"/>
+              <input type="checkbox" id="weekday-fri" class="weekday" (click) = 'onFri($event)'/>
               <label for="weekday-fri">F</label>
-              <input type="checkbox" id="weekday-sat" class="weekday" [(ngModel)]="days[6].checked"/>
+              <input type="checkbox" id="weekday-sat" class="weekday" (click) = 'onSat($event)'/>
               <label for="weekday-sat">S</label>
             </div>
           </div>

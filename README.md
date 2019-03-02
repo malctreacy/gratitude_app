@@ -17,3 +17,10 @@ Back-End:
 
 Download and install with npm install.
 
+TODO: 
+- Implement onboarding notification settings, and integrate with main settings. 
+- Finish implementing local notifications
+- Integrate Raj's ML algo. into firebase.
+- Create news service to inject "featured content" into timeline. 
+- Implement points system to keep track of user data and change growth icons.
+

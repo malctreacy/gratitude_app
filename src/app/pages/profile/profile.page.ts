@@ -13,6 +13,7 @@ import * as moment from 'moment';
 })
 export class ProfilePage implements OnInit {
   notifyTime: any;
+  formatedNotifyTime: any
   notifications: any[] = [];
   days: any[];
   mon: boolean;
@@ -154,25 +155,66 @@ export class ProfilePage implements OnInit {
       });
       toast.present();
   }
-    timeChange(time) {
-        this.chosenHours = time.hour.value;
-        this.chosenMinutes = time.minute.value;
+  onSun(eventObject) {
+      if (eventObject.target.checked) {
+          this.sun = true;
+      } else {
+          this.sun = false;
+      }
+  }
+  onMon(eventObject) {
+        if (eventObject.target.checked) {
+            this.mon = true;
+        } else {
+            this.mon = false;
+        }
+  }
+    onTue(eventObject) {
+        if (eventObject.target.checked) {
+            this.tues = true;
+        } else {
+            this.tues = false;
+        }
     }
+    onWed(eventObject) {
+        if (eventObject.target.checked) {
+            this.weds = true;
+        } else {
+            this.weds = false;
+        }
+    }
+
+    onThu(eventObject) {
+        if (eventObject.target.checked) {
+            this.thurs = true;
+        } else {
+            this.thurs = false;
+        }
+    }
+
+    onFri(eventObject) {
+        if (eventObject.target.checked) {
+            this.fri = true;
+        } else {
+            this.fri = false;
+        }
+    }
+
+    onSat(eventObject) {
+        if (eventObject.target.checked) {
+            this.sat = true;
+        } else {
+            this.sat = false;
+        }
+    }
+
   getDays() {
-    console.log(this.notifyTime);
-    this.timeChange(this.notifyTime);
     this.presentNotifyOn();
-    this.sun = (<any> document.getElementById('weekday-sun')).checked;
-    this.mon = (<any> document.getElementById('weekday-mon')).checked;
-    this.tues = (<any> document.getElementById('weekday-tue')).checked;
-    this.weds = (<any> document.getElementById('weekday-wed')).checked;
-    this.thurs = (<any> document.getElementById('weekday-thu')).checked;
-    this.fri = (<any> document.getElementById('weekday-fri')).checked;
-    this.sat = (<any> document.getElementById('weekday-sat')).checked;
-    console.log(this.sun);
+    console.log(this.notifyTime);
+    this.formatedNotifyTime = moment(this.notifyTime);
+    this.chosenHours = this.formatedNotifyTime.hour();
+    this.chosenMinutes = this.formatedNotifyTime.minutes();
     this.addNotifications();
-
-
   }
 
   addNotifications() {
@@ -186,6 +228,7 @@ export class ProfilePage implements OnInit {
         {title: 'Sunday', dayCode: 0, checked: false}
     ];
 
+    console.log(this.days);
     this.days[0].checked = this.mon;
     this.days[1].checked = this.tues;
     this.days[2].checked = this.weds;
@@ -194,18 +237,19 @@ export class ProfilePage implements OnInit {
     this.days[5].checked = this.sat;
     this.days[6].checked = this.sun;
 
-    console.log(this.days);
+
 
     const currentDate = new Date();
+    // console.log(currentDate);
     const currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
+    console.log(currentDay);
 
-    for (let day of this.days){
+    for (let day of this.days) {
 
-        if (day.checked){
+        if (day.checked) {
 
             const firstNotificationTime = new Date();
             let dayDifference = day.dayCode - currentDay;
-
             if (dayDifference < 0) {
                 dayDifference = dayDifference + 7; // for cases where the day is in the following week
             }
@@ -222,13 +266,15 @@ export class ProfilePage implements OnInit {
                 every: 'week'
             };
 
+            console.log(notification);
+
             this.notifications.push(notification);
 
         }
 
     }
 
-    console.log("Notifications to be scheduled: ", this.notifications);
+    console.log(this.notifications);
 
     if (this.platform.is('cordova')){
 
