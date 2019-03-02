@@ -29,28 +29,27 @@
               <ion-label>Pick a time:</ion-label>
               <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45"></ion-datetime>
             </ion-item>
-            <ion-toggle checked></ion-toggle>
           </div>
           <div class = "wrapper">
             <div class="weekDays-selector">
-              <input type="checkbox" id="weekday-sun" class="weekday" />
+              <input type="checkbox" id="weekday-sun" class="weekday" (click) = 'onSun($event)'/>
               <label for="weekday-sun">S</label>
-              <input type="checkbox" id="weekday-mon" class="weekday" />
+              <input type="checkbox" id="weekday-mon" class="weekday" (click) = 'onMon($event)'/>
               <label for="weekday-mon">M</label>
-              <input type="checkbox" id="weekday-tue" class="weekday" />
+              <input type="checkbox" id="weekday-tue" class="weekday" (click) = 'onTue($event)'/>
               <label for="weekday-tue">T</label>
-              <input type="checkbox" id="weekday-wed" class="weekday" />
+              <input type="checkbox" id="weekday-wed" class="weekday" (click) = 'onWed($event)'/>
               <label for="weekday-wed">W</label>
-              <input type="checkbox" id="weekday-thu" class="weekday" />
+              <input type="checkbox" id="weekday-thu" class="weekday" (click) = 'onThu($event)'/>
               <label for="weekday-thu">T</label>
-              <input type="checkbox" id="weekday-fri" class="weekday" />
+              <input type="checkbox" id="weekday-fri" class="weekday" (click) = 'onFri($event)'/>
               <label for="weekday-fri">F</label>
-              <input type="checkbox" id="weekday-sat" class="weekday" />
+              <input type="checkbox" id="weekday-sat" class="weekday" (click) = 'onSat($event)'/>
               <label for="weekday-sat">S</label>
             </div>
           </div>
           <div>
-            <ion-button id ='save_setting'  color="primary">Save</ion-button>
+            <ion-button id ='save_setting'  color="primary" (click) = "getDays()">Save</ion-button>
           </div>
         </ion-card-content>
       </ion-card>

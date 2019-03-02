@@ -269,11 +269,8 @@ export class ProfilePage implements OnInit {
             console.log(notification);
 
             this.notifications.push(notification);
-
         }
-
     }
-
     console.log(this.notifications);
 
     if (this.platform.is('cordova')){
@@ -285,9 +282,7 @@ export class ProfilePage implements OnInit {
             this.localNotifications.schedule(this.notifications);
 
             this.notifications = [];
-
         });
-
     }
 
   }
