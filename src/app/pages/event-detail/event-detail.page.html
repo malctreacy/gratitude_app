@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{currentEvent?.name}}</ion-title>
+    <ion-title>Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,9 +12,10 @@
     <ion-card-header>
       Gratitude Statement:
     </ion-card-header>
+    <ion-card-subtitle>{{currentEvent?.name}}</ion-card-subtitle>
     <ion-card-content>
       <span>
-        {{currentEvent?.name}}
+        {{currentEvent?.content}}
       </span>
     </ion-card-content>
   </ion-card>

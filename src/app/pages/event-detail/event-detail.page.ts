@@ -13,11 +13,13 @@ const { Camera } = Plugins;
 export class EventDetailPage implements OnInit {
   public currentEvent: any = {};
   public guestPicture: string = null;
+  public eventName: string;
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     const eventId: string = this.route.snapshot.paramMap.get('id');
+    this.eventName = eventId;
     this.eventService
       .getEventDetail(eventId)
       .get()

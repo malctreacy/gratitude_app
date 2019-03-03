@@ -18,6 +18,7 @@ export class EventListPage implements OnInit {
         this.eventList = [];
         eventListSnapshot.forEach(snap => {
           this.eventList.push({
+            id: snap.id,
             name: snap.data().name,
             content: snap.data().content,
           });
