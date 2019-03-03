@@ -102,11 +102,11 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Points / Progress Indicator Here</ion-card-subtitle>
+      <ion-card-subtitle>Progress Towards Next Tree-Level:</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      Tree widget here with progress bar for next level-up.
+      <ion-progress-bar color="primary" [value]="progressBar(this, this.eventList)"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
 </ion-content>

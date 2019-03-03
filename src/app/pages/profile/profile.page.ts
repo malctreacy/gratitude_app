@@ -5,6 +5,7 @@ import { ProfileService } from '../../services/user/profile.service';
 import { Router } from '@angular/router';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import * as moment from 'moment';
+import { EventService } from '../../services/event/event.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,9 @@ import * as moment from 'moment';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  public eventCount: any;
+  public eventLevel: any;
+  public eventList: Array<any>;
   notifyTime: any;
   formatedNotifyTime: any
   notifications: any[] = [];
@@ -34,6 +38,7 @@ export class ProfilePage implements OnInit {
     private profileService: ProfileService,
     private router: Router,
     public localNotifications: LocalNotifications,
+    private eventService: EventService,
     public toastController: ToastController
   ) {
       this.days = [
@@ -59,6 +64,41 @@ export class ProfilePage implements OnInit {
       .then(userProfileSnapshot => {
         this.userProfile = userProfileSnapshot.data();
       });
+      this.eventService
+          .getEventList()
+          .get()
+          .then(eventListSnapshot => {
+              this.eventList = [];
+              eventListSnapshot.forEach(snap => {
+                  this.eventList.push({
+                      name: snap.data().name,
+                      content: snap.data().content,
+                  });
+                  return false;
+              });
+          });
+      this.progressBar(this, this.eventList);
+  }
+
+  progressBar(ratio: any, evntarr: Array<any>) {
+      if ( evntarr === undefined ) {
+          return '1';
+      }
+      if ( evntarr.length <= 5 ) {
+          return evntarr.length / 5;
+      }
+      if ( evntarr.length > 5 &&  evntarr.length <= 15 ) {
+          return evntarr.length / 15;
+      }
+      if ( evntarr.length > 15 &&  evntarr.length <= 25 ) {
+          return evntarr.length / 25;
+      }
+      if ( evntarr.length > 25 &&  evntarr.length <= 50 ) {
+          return evntarr.length / 50;
+      }
+      if ( evntarr.length > 50 ) {
+          return 1;
+      }
   }
 
   logOut(): void {

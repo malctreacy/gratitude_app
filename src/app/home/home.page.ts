@@ -1,6 +1,5 @@
-import {AfterContentInit, AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { EventService } from '../services/event/event.service';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
