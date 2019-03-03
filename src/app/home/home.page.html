@@ -24,6 +24,6 @@
       <ion-card-subtitle text-center class="subtitle">Keep submitting entries, watch your plant grow!</ion-card-subtitle>
     </ion-card-header>
 
-    <img class = 'progressImg' src="../../assets/imgs/tree1.png">
+    <img class = 'progressImg' [src]="getImage(this, this.eventList)">
   </ion-card>
 </ion-content>
