@@ -22,5 +22,5 @@ TODO:
 - (Done) Finish implementing local notifications
 - Integrate Raj's ML algo. into firebase.
 - Create news service to inject "featured content" into timeline. 
-- Implement points system to keep track of user data and change growth icons.
-- Fix event detail page to detail gratitude statement.
+- (Done) Implement points system to keep track of user data and change growth icons.
+- (Done) Fix event detail page to detail gratitude statement.

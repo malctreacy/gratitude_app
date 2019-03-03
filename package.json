@@ -34,6 +34,7 @@
     "de.appplant.cordova.plugin.local-notification": "0.8.5",
     "firebase": "^5.8.1",
     "moment": "^2.24.0",
+    "newsapi": "^2.4.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.29"
   },

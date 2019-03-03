@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding color="light">
-  <ion-card color="secondary" *ngFor="let event of eventList" routerLink="/event-detail/{{ event.id }}">
+  <ion-card color="secondary" *ngFor="let event of eventList; let i = index" routerLink="/event-detail/{{ event.id }}">
     <ion-card-header>
         <ion-card-subtitle>{{ event.name }}</ion-card-subtitle>
     </ion-card-header>
