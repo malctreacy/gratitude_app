@@ -14,12 +14,10 @@ export class EventListPage implements OnInit {
   public eventList: Array<any>;
   public url: string;
   public resultList: Array<any>;
-  public numbers: Array<any>;
-  public newsFeedArr: Array<any>;
-  public gratitudeFeedArr: Array<any>;
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
+    this.delay(3000);
     const NewsAPI = require('newsapi');
     const newsapi = new NewsAPI('f27f44c23fff4a20a975cc914dd615d4');
 
@@ -29,7 +27,6 @@ export class EventListPage implements OnInit {
         sortBy: 'relevancy',
     }).then(response => {
         this.resultList = response;
-
     });
     this.eventService
       .getEventList()
@@ -44,8 +41,6 @@ export class EventListPage implements OnInit {
           });
           return false;
         });
-
-      this.delay(1000);
       this.counter = 0;
       this.articleCount = 0;
       this.size = this.eventList.length;
@@ -80,6 +75,8 @@ export class EventListPage implements OnInit {
       }
 
       });
+
+    console.log(this.eventList);
   }
 
   async delay(ms: number) {

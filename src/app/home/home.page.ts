@@ -25,6 +25,7 @@ export class HomePage implements OnInit {
                 });
             });
         this.getImage(this, this.eventList);
+        this.progressBar(this, this.eventList);
     }
 
     getImage(image: any, evntarr: Array<any>) {
@@ -47,5 +48,26 @@ export class HomePage implements OnInit {
       if ( evntarr.length > 50 ) {
           return '../../assets/imgs/tree5.png';
       }
+    }
+
+    progressBar(ratio: any, evntarr: Array<any>) {
+        if ( evntarr === undefined ) {
+            return '1';
+        }
+        if ( evntarr.length <= 5 ) {
+            return evntarr.length / 5;
+        }
+        if ( evntarr.length > 5 &&  evntarr.length <= 15 ) {
+            return evntarr.length / 15;
+        }
+        if ( evntarr.length > 15 &&  evntarr.length <= 25 ) {
+            return evntarr.length / 25;
+        }
+        if ( evntarr.length > 25 &&  evntarr.length <= 50 ) {
+            return evntarr.length / 50;
+        }
+        if ( evntarr.length > 50 ) {
+            return 1;
+        }
     }
 }

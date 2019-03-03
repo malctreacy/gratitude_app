@@ -25,5 +25,6 @@
     </ion-card-header>
 
     <img class = 'progressImg' [src]="getImage(this, this.eventList)">
+    <ion-progress-bar color="primary" [value]="progressBar(this, this.eventList)"></ion-progress-bar>
   </ion-card>
 </ion-content>
