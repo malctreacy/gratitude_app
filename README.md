@@ -12,9 +12,9 @@ Front-End:
 - Angular
 
 Back-End:
-- AngularFire
-- Firebase
-- Naive Bayes classifier.
+- AngularFire - https://angular.io/
+- Firebase - https://firebase.google.com/
+- Naive Bayes classifier - https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html
 
 HOW TO RUN:
 in /src folder, run "npm install"
