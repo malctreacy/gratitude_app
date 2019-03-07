@@ -5,7 +5,7 @@ Description: Native progresive web app designed to mimic the peer-reviewed benef
 
 Functionality: 
 - Cloud-based user Authentication + Profile Management
-- Gratitude Prompts (randomized) + gratitude timeline.
+- Gratitude Prompts (AI generated) + gratitude timeline.
 
 Front-End: 
 - Ionic v4 + Capacitor (https://capacitor.ionicframework.com/docs/getting-started/with-ionic/)
@@ -14,13 +14,16 @@ Front-End:
 Back-End:
 - AngularFire
 - Firebase
+- Naive Bayes classifier.
 
-Download and install with npm install.
+HOW TO RUN:
+in /src folder, run "npm install"
+run "ionic lab" 
 
 TODO: 
 - (Done) Implement onboarding notification settings, and integrate with main settings. 
 - (Done) Finish implementing local notifications
-- Integrate Raj's ML algo. into firebase.
-- Create news service to inject "featured content" into timeline. 
+- (Done) Integrate Raj's ML algo. into firebase.
+- (Done) Create news service to inject "featured content" into timeline. 
 - (Done) Implement points system to keep track of user data and change growth icons.
 - (Done) Fix event detail page to detail gratitude statement.
