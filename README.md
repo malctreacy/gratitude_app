@@ -20,8 +20,6 @@ HOW TO RUN:
 in /src folder, run "npm install"
 run "ionic lab" 
 
-PROJECT VISUALS:
-
 
 Login Screen: 
 
