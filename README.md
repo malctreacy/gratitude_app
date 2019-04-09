@@ -20,10 +20,20 @@ HOW TO RUN:
 in /src folder, run "npm install"
 run "ionic lab" 
 
-TODO: 
-- (Done) Implement onboarding notification settings, and integrate with main settings. 
-- (Done) Finish implementing local notifications
-- (Done) Integrate Raj's ML algo. into firebase.
-- (Done) Create news service to inject "featured content" into timeline. 
-- (Done) Implement points system to keep track of user data and change growth icons.
-- (Done) Fix event detail page to detail gratitude statement.
+PROJECT VISUALS:
+
+
+Login Screen: 
+
+
+![](login.png)
+
+Timeline Entry:
+
+
+![](new_entry.gif)
+
+Timeline View:
+
+
+![](timeline.gif)
