@@ -41,6 +41,7 @@ export class EventCreatePage implements OnInit {
   getGratitude() {
     const gratitudeArr = this.gratitude.gratitude;
     this.gratitudeStatement = gratitudeArr[Math.floor(Math.random() * gratitudeArr.length)];
+    return this.gratitudeStatement;
     // console.log(this.gratitudeStatement);
   }
 }
