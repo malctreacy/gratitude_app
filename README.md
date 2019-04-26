@@ -16,7 +16,7 @@ Description: Native progresive web app designed to mimic the peer-reviewed benef
 - Firebase - https://firebase.google.com/
 - Naive Bayes classifier - https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html
 
-HOW TO RUN:
+### Local Install:
 in /src folder, run "npm install"
 run "ionic lab" 
 
