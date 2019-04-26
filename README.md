@@ -20,18 +20,10 @@ HOW TO RUN:
 in /src folder, run "npm install"
 run "ionic lab" 
 
-
-Login Screen: 
-
-
-![](login.png)
-
-Timeline Entry:
+Login Screen: | Timeline Entry: | Timeline View:
+------------ | ------------- | -------------
+![](login.png) | ![](new_entry.gif) | ![](timeline.gif)
 
 
-![](new_entry.gif)
-
-Timeline View:
 
 
-![](timeline.gif)
