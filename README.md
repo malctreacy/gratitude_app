@@ -25,5 +25,3 @@ Login Screen: | Timeline Entry: | Timeline View:
 ![](login.png) | ![](new_entry.gif) | ![](timeline.gif)
 
 
-
-
